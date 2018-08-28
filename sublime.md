@@ -27,5 +27,10 @@ CodeInter:
 	作用：代码自动补全
 	配置：修改path中php路径的指向地址即可
 
+MarkDown 编辑+实时预览
+	作用 :MarkDown 编辑+实时预览
+	配置 ：
+
 其他插件安装
 	参考：https://blog.csdn.net/zbwroom/article/details/72473851
+
