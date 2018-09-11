@@ -28,9 +28,25 @@ CodeInter:
 	配置：修改path中php路径的指向地址即可
 
 MarkDown 编辑+实时预览
+	MarkdownEditing 编辑插件
+	oMniMarkupPreviewer 实时预览  （setting {"mathjax_enabled":true}）安装完成后可以crtl+alt+O在浏览器实时预览
+	补充插件 Monokai Extended & Markdown Extended  主题插件
+	补充插件 MarkdownTOC 一键生成目录 (setting {"default_autolink":true,#目录以链接形式呈现 "default_barcket":"round",#目录以链接形式呈现 "default_depth":0 #无限目录深度})
+	补充插件 Table Editor
 	作用 :MarkDown 编辑+实时预览
 	配置 ：
 
 其他插件安装
 	参考：https://blog.csdn.net/zbwroom/article/details/72473851
+
+#注意
+问题1、安装完成插件后系统报错
+	sublime error loading syntax file
+解决方案
+	找到AppData\Roaming\Sublime Text3\Local ，删除里面的两个文件
+	Session.sublime_session、以及Auto Save Session.sublime_session 重新打开编辑器即可
+
+问题二、sublime text 有个bug 那就是不支持中午的鼠标跟随（输入法不能显示在光标的下方）
+解决方案
+	安装IMESupport插件即可
 
