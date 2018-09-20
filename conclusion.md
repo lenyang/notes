@@ -62,3 +62,60 @@ foreach (array($val1,$val2,$val3,$val4) as $value) {
     }
 }
 ```
+
+#知识点四、php显示日期（今天、昨天、本周、上周、本月、上月)汇总
+```php
+//今天
+$today = date("Y-m-d");
+//昨天
+$yesterday = date("Y-m-d", strtotime(date("Y-m-d"))-86400);
+//上周
+$lastweek_start = date("Y-m-d H:i:s",mktime(0, 0 , 0,date("m"),date("d")-date("w")+1-7,date("Y")));
+$lastweek_end = date("Y-m-d H:i:s",mktime(23,59,59,date("m"),date("d")-date("w")+7-7,date("Y")));
+//本周
+$thisweek_start = date("Y-m-d H:i:s",mktime(0, 0 , 0,date("m"),date("d")-date("w")+1,date("Y"))); 
+$thisweek_end = date("Y-m-d H:i:s",mktime(23,59,59,date("m"),date("d")-date("w")+7,date("Y"))); 
+//上月
+$lastmonth_start = date("Y-m-d H:i:s",mktime(0, 0 , 0,date("m")-1,1,date("Y"))); 
+$lastmonth_end = date("Y-m-d H:i:s",mktime(23,59,59,date("m") ,0,date("Y"))); 
+//本月
+$thismonth_start = date("Y-m-d H:i:s",mktime(0, 0 , 0,date("m"),1,date("Y"))); 
+$thismonth_end = date("Y-m-d H:i:s",mktime(23,59,59,date("m"),date("t"),date("Y"))); 
+//本季度未最后一月天数 
+$getMonthDays = date("t",mktime(0, 0 , 0,date('n')+(date('n')-1)%3,1,date("Y")));
+//本季度/
+$thisquarter_start = date('Y-m-d H:i:s', mktime(0, 0, 0,date('n')-(date('n')-1)%3,1,date('Y'))); 
+$thisquarter_end = date('Y-m-d H:i:s', mktime(23,59,59,date('n')+(date('n')-1)%3,$getMonthDays,date('Y')));
+ 
+ 
+//2016-08-10这天 2个月后的日期
+echo date("Y-m-d",strtotime("+2 month",strtotime("2018-09-19")));
+     
+//当前 3个月后的日期
+echo date("Y-m-d",strtotime("+3 month",time()));
+
+/**
+     *  方法名 ：time_slot
+     *  作  用 ：时间段（本日，昨日，本周，上周，本月，上月）
+     *  @param ：
+     *  @return： 返回时间段
+     *  @author：
+     *  @date  ：2016/7/14
+     */
+function time_slot(){
+    $time['today']['begin'] = mktime(0,0,0,date('m'),date('d'),date('Y'));
+    $time['today']['end'] = mktime(0,0,0,date('m'),date('d')+1,date('Y'))-1;
+    $time['tomorrow']['begin'] =  mktime(0,0,0,date('m'),date('d')-1,date('Y'));
+    $time['tomorrow']['end'] =  mktime(0,0,0,date('m'),date('d'),date('Y'))-1;
+    $time['week']['begin'] = mktime(0, 0 , 0,date("m"),date("d")-date("w")+1,date("Y"));
+    $time['week']['end'] = mktime(23,59,59,date("m"),date("d")-date("w")+7,date("Y"));
+    $time['lastweek']['begin'] = mktime(0,0,0,date('m'),date('d')-date('w')+1-7,date('Y'));
+    $time['lastweek']['end'] = mktime(23,59,59,date('m'),date('d')-date('w')+7-7,date('Y'));
+    $time['month']['begin'] = mktime(0,0,0,date('m'),1,date('Y'));
+    $time['month']['end'] = mktime(23,59,59,date('m'),date('t'),date('Y'));
+    $time['lastmonth']['begin'] = mktime(0, 0 , 0,date("m")-1,1,date("Y"));
+    $time['lastmonth']['end'] = mktime(23,59,59,date("m") ,0,date("Y"));
+    //返回时间段
+    return $time;
+}
+```
