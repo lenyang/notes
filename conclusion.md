@@ -43,3 +43,22 @@ for ($j=0; $j <100 ; $j++) {
 }
 exit;
 ```
+
+#知识点二、
+```php
+ $list = array();
+ $list=[];
+```
+以上两种表达方式的区别
+
+#知识点三、
+下述方法可以用于接收可变的参数，有则写入数组，没有就跳过，最适用就是在修改数据表的数据时只更新修改的字段
+```php
+$updateArr = array();
+foreach (array($val1,$val2,$val3,$val4) as $value) {
+    $temp = $request->input($value,'');
+    if(!empty($temp)){
+        $updataArr[$value] = intval($temp);
+    }
+}
+```
