@@ -14,7 +14,7 @@ DocBlockr :
 		    "jsdocs_extra_tags":["@Author	Crazy、Ly","@DateTime {{datetime}}"]
 		}
 
-sublimeLinter：
+sublimeLinter 与 sublimeLiinter-php：
 	作用：语法错误提示
 		setter-user配置
 		复制一份默认的配置文件到user，然后将path中的地址指向php.exe即可
