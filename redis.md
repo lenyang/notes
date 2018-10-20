@@ -1,4 +1,4 @@
-/**  String 数据类型 */
+/***  String 数据类型  **/
 	# string是redis最基本的类型，而且string类型是二进制安全的.
 	# 意思是redis的string可以包含任何数据,比如jpg图片或者序列化的对象.
 	$redis->set('key','TK');
