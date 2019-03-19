@@ -252,3 +252,9 @@ function parseSql($filename)
     }
 
 ```
+# 知识点九 redis 的持续化pconnection 时，选择db ，出现读写不再同一个db
+>redis 中 pconnection  与 connection 的区别，如果处于pconnect 的情况下，持续链接的时候，选择db 的时候会默认选择0 db ，如果存在redis共用的情况下，不止链接默认db 的时候 ，那么，下次默认写入的时候，会随机从db 0 和db 1中选一个出来，
+>解决：直接在读写的时候都指定选择一个db
+```sql
+    redis::select(1);
+```
